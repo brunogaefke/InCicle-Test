@@ -1,0 +1,11 @@
+header {
+  height: 55px;
+  background-color: var(--color-primary);
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  padding-top: 10px;
+}
