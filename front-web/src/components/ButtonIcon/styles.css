@@ -1,0 +1,24 @@
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  margin-left: 15px;
+  background-color: var(--color-btn-bg-primary);
+  border-radius: 5px;
+}
+
+.btn h6 {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.btn-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-btn-bg-primary);
+  color: #fff;
+}
