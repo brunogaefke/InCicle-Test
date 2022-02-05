@@ -1,10 +1,12 @@
 import ButtonIcon from 'components/ButtonIcon'
+import DataCard from 'components/DataCard'
+import ManagementCard from 'components/ManagementCard'
 import './styles.css'
 
 const Home = () => {
     return (
         <>
-            <div className="home-content-container">
+            <div className="home-content-container ">
                 <div className="first-container">
                     <div className='home-title-container'>
                         <div className='container-title'>
@@ -20,8 +22,13 @@ const Home = () => {
                             <ButtonIcon text="CRIAR" />
                         </div>
                     </div>
-                    <div className='home-catalog-container'>
-                        <h1>Catalogo</h1>
+                    <div className='home-catalog'>
+                        <DataCard />
+                        <DataCard />
+                        <DataCard />
+                        <DataCard />
+                        <DataCard />
+                        <DataCard />
                     </div>
                 </div>
                 <div className="home-infos-container">
@@ -32,6 +39,9 @@ const Home = () => {
                     </div>
                     <div className='home-info-box'>
                         <h6>Quadros de Gestão à Vista</h6>
+                        <ManagementCard />
+                        <ManagementCard />
+                        <ManagementCard />
                     </div>
                 </div>
             </div>
