@@ -30,17 +30,17 @@ const DataCard = () => {
 
     return (
         <div className='data-container'>
-            <div ><img className='data-image' src={data.file.url} alt={data.title} /></div>
-            <div className='data-info'>
+            <div className='image-container' ><img className='data-image ' src={data.file.url} alt={data.title} /></div>
+            <div className='data-info '>
                 <h3>{data.title}</h3>
-                <div className="display-info">
-                    <p>{data.type} - </p>
-                    <p>{data.info.place} - </p>
+                <div className="display-info ">
+                    <span>{data.type} </span>
+                    <p> | {data.info.place} | </p>
                     <p>{data.info.date}</p>
                 </div>
                 <p>{data.description}</p>
             </div>
-            <div className='data-icon ml-auto'>
+            <div className='data-icon'>
                 <BigIcon />
             </div>
         </div>

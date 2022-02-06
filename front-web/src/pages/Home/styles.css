@@ -69,6 +69,10 @@
 }
 
 @media (min-width: 576px) {
+  .home-content-container {
+    justify-content: center;
+    align-items: center;
+  }
   .home-info-reminder {
     width: 480px;
   }
