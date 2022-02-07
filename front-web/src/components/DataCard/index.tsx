@@ -41,7 +41,7 @@ const DataCard = () => {
                 <p>{data.description}</p>
             </div>
             <div className='data-icon'>
-                <BigIcon />
+                <button className="points-button"><BigIcon /></button>
             </div>
         </div>
     );

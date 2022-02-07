@@ -81,7 +81,7 @@
   }
 
   .data-info {
-    flex: auto;
+    flex: content;
   }
 
   .data-info p {

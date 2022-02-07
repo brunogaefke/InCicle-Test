@@ -35,3 +35,7 @@ a:hover {
   text-decoration: none;
   color: unset;
 }
+
+.points-button {
+  border: none;
+}

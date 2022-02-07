@@ -1,9 +1,35 @@
 import ButtonIcon from 'components/ButtonIcon'
 import DataCard from 'components/DataCard'
 import ManagementCard from 'components/ManagementCard'
+import getBoardsFake from 'components/ManagementCard/getBoardsFake'
+import ReminderCard from 'components/ReminderCard'
+import { useEffect, useState } from 'react'
+import { IManagement } from 'utils/types/IManagement'
 import './styles.css'
 
 const Home = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [management, setManagement] = useState<IManagement>({ boards: [] });
+    const [loadingManagement, setLoadingManagement] = useState<boolean>(true);
+
+    const getManagementData = async (): Promise<void> => {
+        setTimeout(async () => {
+            await getBoardsFake()
+                .then((data): void => {
+                    console.log(data);
+                    setManagement(data);
+                    setLoadingManagement(false);
+                })
+                .catch((): void => {
+                    console.log('erro');
+                })
+        }, 1000);
+    };
+
+    useEffect((): void => {
+        getManagementData();
+    }, []);
+
     return (
         <>
             <div className="home-content-container ">
@@ -13,7 +39,7 @@ const Home = () => {
                             <h1>Endomarketing</h1>
                         </div>
                         <div className='container-buttons'>
-                            <select className="filter-input" placeholder='TIPO' >
+                            <select className="filter-input" >
                                 <option value="">TIPO</option>
                                 <option value="Comunicado">Comunicado</option>
                                 <option value="Evento">Evento</option>
@@ -32,16 +58,14 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="home-infos-container">
-                    <div className='home-info-reminder'>
-                        <h1>Endormarketing</h1>
-                        <p>Endomarketing está relacionado às ações de treinamento ou qualificação dos colaboradores da empresa visando um melhor serviço para o cliente. Marketing interno, devido ao nome, é usualmente confundido com Endomarketing mesmo sendo conceitos diferentes.</p>
-                        <input type="button" value="DISPENSAR" />
-                    </div>
+                    <ReminderCard />
                     <div className='home-info-box'>
                         <h6>Quadros de Gestão à Vista</h6>
-                        <ManagementCard />
-                        <ManagementCard />
-                        <ManagementCard />
+                        {
+                            (loadingManagement) ? <>loader</> : management.boards.map((board): React.ReactNode => (
+                                <ManagementCard key={board.id} title={board.title} resume_files={board.resume_files} />
+                            ))
+                        }
                     </div>
                 </div>
             </div>

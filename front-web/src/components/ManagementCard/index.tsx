@@ -1,34 +1,33 @@
 import "./styles.css"
 import { ReactComponent as GLobeIcon } from 'assets/img/globe.svg';
 import { ReactComponent as PointsIcon } from 'assets/img/points.svg';
+import { IManagementBoard, IManagementFile } from "utils/types/IManagement";
 
+export interface ManagementCardProps {
+    board: IManagementBoard;
+}
 
-const ManagementCard = () => {
-    const managment = {
-        "title": "Demonstrativo comercial",
-        "resume_files":
-        {
-            "file": "https://static-incicle.s3.us-east-1.amazonaws.com/front-test-files/7.jpg"
-        },
-    }
+const ManagementCard = (props: IManagementBoard) => {
+    const { title, resume_files } = props;
+
     return (
         <div className="container-card">
             <div className="title-card">
-                <h3>{managment.title}</h3>
+                <h3>{title}</h3>
                 <div className="icons-card">
                     <GLobeIcon />
-                    <PointsIcon />
+                    <button className="points-button"><PointsIcon /></button>
+
                 </div>
             </div>
             <div className="image-content">
-                <img className='data-image' src={managment.resume_files.file} alt={managment.title} />
-                <img className='data-image' src={managment.resume_files.file} alt={managment.title} />
-                <img className='data-image' src={managment.resume_files.file} alt={managment.title} />
-                <img className='data-image' src={managment.resume_files.file} alt={managment.title} />
+                {
+                    (resume_files as IManagementFile[]).map((file): React.ReactNode => (
+                        <img className='data-image' key={file.id} src={file.file} alt={file.title} />
+                    ))
+                }
             </div>
         </div>
-
-
     );
 };
 

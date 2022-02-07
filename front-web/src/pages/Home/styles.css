@@ -29,34 +29,6 @@
   display: none;
 }
 
-.home-info-reminder {
-  margin: 20px 0 15px 15px;
-  width: 280px;
-  height: 310px;
-  padding: 30px 0 30px 20px;
-  background-color: var(--color-bg-secondary);
-}
-
-.home-info-reminder h1 {
-  font-size: 16px;
-  color: var(--color-text-primary);
-}
-
-.home-info-reminder p {
-  padding-top: 12px;
-  font-size: 14px;
-  color: var(--color-text-primary);
-}
-
-.home-info-reminder input {
-  width: 112px;
-  height: 37px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-secondary);
-}
-
 .home-info-box {
   background-color: var(--color-primary);
   margin: 0 0 15px 15px;
@@ -72,9 +44,6 @@
   .home-content-container {
     justify-content: center;
     align-items: center;
-  }
-  .home-info-reminder {
-    width: 480px;
   }
 
   .home-info-box {
@@ -96,11 +65,6 @@
     display: flex;
     align-items: center;
     margin: 35px 0 15px 75px;
-  }
-
-  .home-info-reminder {
-    margin: 55px 75px 15px 0;
-    width: 280px;
   }
 
   .home-info-box {

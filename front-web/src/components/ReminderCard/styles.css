@@ -1,0 +1,41 @@
+.home-info-reminder {
+  margin: 20px 0 15px 15px;
+  width: 280px;
+  height: 310px;
+  padding: 30px 0 30px 20px;
+  background-color: var(--color-bg-secondary);
+}
+
+.home-info-reminder h1 {
+  font-size: 16px;
+  color: var(--color-text-primary);
+}
+
+.home-info-reminder p {
+  padding-top: 12px;
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+
+.home-info-reminder input {
+  width: 112px;
+  height: 37px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  border-radius: 5px;
+  background-color: var(--color-bg-secondary);
+}
+
+@media (min-width: 576px) {
+  .home-info-reminder {
+    width: 480px;
+  }
+}
+
+@media (min-width: 992px) {
+  .home-info-reminder {
+    margin: 45px 75px 18px 0;
+    width: 280px;
+  }
+}
