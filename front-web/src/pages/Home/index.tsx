@@ -1,22 +1,25 @@
 import ButtonIcon from 'components/ButtonIcon'
 import DataCard from 'components/DataCard'
 import ManagementCard from 'components/ManagementCard'
-import getBoardsFake from 'components/ManagementCard/getBoardsFake'
+import getBoardsFake from 'pages/Home/getBoardsFake'
 import ReminderCard from 'components/ReminderCard'
 import { useEffect, useState } from 'react'
 import { IManagement } from 'utils/types/IManagement'
 import './styles.css'
+import { IDataCard } from 'utils/types/IDataCard'
+import getCardsFake from './getCardsFake'
 
 const Home = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [management, setManagement] = useState<IManagement>({ boards: [] });
     const [loadingManagement, setLoadingManagement] = useState<boolean>(true);
+
+    const [cards, setCards] = useState<IDataCard[]>([]);
+    const [loadingCards, setloadingCards] = useState<boolean>(true);
 
     const getManagementData = async (): Promise<void> => {
         setTimeout(async () => {
             await getBoardsFake()
                 .then((data): void => {
-                    console.log(data);
                     setManagement(data);
                     setLoadingManagement(false);
                 })
@@ -26,7 +29,21 @@ const Home = () => {
         }, 1000);
     };
 
+    const getCardsData = async (): Promise<void> => {
+        setTimeout(async () => {
+            await getCardsFake()
+                .then((data): void => {
+                    setCards(data);
+                    setloadingCards(false);
+                })
+                .catch((): void => {
+                    console.log('erro');
+                })
+        }, 1000);
+    };
+
     useEffect((): void => {
+        getCardsData();
         getManagementData();
     }, []);
 
@@ -49,12 +66,9 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='home-catalog'>
-                        <DataCard />
-                        <DataCard />
-                        <DataCard />
-                        <DataCard />
-                        <DataCard />
-                        <DataCard />
+                        {
+                            (loadingCards) ? <>loader</> : (<DataCard boards={cards} />)
+                        }
                     </div>
                 </div>
                 <div className="home-infos-container">
