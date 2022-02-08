@@ -35,7 +35,11 @@
 
 @media (min-width: 992px) {
   .home-info-reminder {
-    margin: 45px 75px 18px 0;
+    margin: 53px 75px 18px 0;
     width: 280px;
+  }
+
+  .fake-div {
+    margin: 55px 75px 18px 0;
   }
 }

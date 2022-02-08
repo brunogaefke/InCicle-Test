@@ -1,6 +1,7 @@
 import './styles.css';
 import { ReactComponent as BigIcon } from 'assets/img/bigPoints.svg';
 import { IDataCard } from 'utils/types/IDataCard';
+import { useState } from 'react';
 
 
 export interface DataCardProps {
@@ -10,7 +11,12 @@ export interface DataCardProps {
 const DataCard = (props: DataCardProps) => {
     const { boards } = props;
 
-    return (
+    const [show, setShow] = useState<boolean>(true);
+    const dismiss = () => {
+        setShow(false);
+    }
+
+    return (show) ? (
         <>
             {
                 boards.map((board) => (
@@ -35,13 +41,13 @@ const DataCard = (props: DataCardProps) => {
                             <p>{board.description}</p>
                         </div>
                         <div className='data-icon'>
-                            <button className="points-button"><BigIcon /></button>
+                            <button className="points-button" onClick={dismiss}><BigIcon /></button>
                         </div>
                     </div>
                 ))
             }
         </>
-    );
+    ) : (<></>);
 };
 
 export default DataCard;

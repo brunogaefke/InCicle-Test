@@ -8,6 +8,7 @@ import { IManagement } from 'utils/types/IManagement'
 import './styles.css'
 import { IDataCard } from 'utils/types/IDataCard'
 import getCardsFake from './getCardsFake'
+import Loader from './Loader'
 
 const Home = () => {
     const [management, setManagement] = useState<IManagement>({ boards: [] });
@@ -67,7 +68,7 @@ const Home = () => {
                     </div>
                     <div className='home-catalog'>
                         {
-                            (loadingCards) ? <>loader</> : (<DataCard boards={cards} />)
+                            (loadingCards) ? <><Loader /></> : (<DataCard boards={cards} />)
                         }
                     </div>
                 </div>
@@ -76,7 +77,7 @@ const Home = () => {
                     <div className='home-info-box'>
                         <h6>Quadros de Gestão à Vista</h6>
                         {
-                            (loadingManagement) ? <>loader</> : management.boards.map((board): React.ReactNode => (
+                            (loadingManagement) ? <><Loader /></> : management.boards.map((board): React.ReactNode => (
                                 <ManagementCard key={board.id} title={board.title} resume_files={board.resume_files} />
                             ))
                         }

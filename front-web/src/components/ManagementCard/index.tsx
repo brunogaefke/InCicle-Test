@@ -2,6 +2,7 @@ import "./styles.css"
 import { ReactComponent as GLobeIcon } from 'assets/img/globe.svg';
 import { ReactComponent as PointsIcon } from 'assets/img/points.svg';
 import { IManagementBoard, IManagementFile } from "utils/types/IManagement";
+import { useState } from "react";
 
 export interface ManagementCardProps {
     board: IManagementBoard;
@@ -10,14 +11,18 @@ export interface ManagementCardProps {
 const ManagementCard = (props: IManagementBoard) => {
     const { title, resume_files } = props;
 
-    return (
+    const [show, setShow] = useState<boolean>(true);
+    const dismiss = () => {
+        setShow(false);
+    }
+
+    return (show) ? (
         <div className="container-card">
             <div className="title-card">
                 <h3>{title}</h3>
                 <div className="icons-card">
                     <GLobeIcon />
-                    <button className="points-button"><PointsIcon /></button>
-
+                    <button className="points-button" onClick={dismiss}><PointsIcon /></button>
                 </div>
             </div>
             <div className="image-content">
@@ -28,7 +33,7 @@ const ManagementCard = (props: IManagementBoard) => {
                 }
             </div>
         </div>
-    );
+    ) : (<></>);
 };
 
 export default ManagementCard;

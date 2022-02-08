@@ -31,7 +31,7 @@
 
 .home-info-box {
   background-color: var(--color-primary);
-  margin: 0 0 15px 15px;
+  margin: 15px 0 15px 15px;
   width: 280px;
   height: 335px;
   padding: 10px 0 10px 10px;
@@ -68,8 +68,13 @@
     margin: 35px 0 15px 75px;
   }
 
+  .home-infos-container {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
   .home-info-box {
     width: 280px;
-    margin: 0;
+    margin: 20px 0;
   }
 }
