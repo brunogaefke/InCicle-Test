@@ -13,6 +13,9 @@ const DataCard = (props: DataCardProps) => {
 
     const [show, setShow] = useState<boolean>(true);
     const dismiss = () => {
+        if (!window.confirm("Tem certeza que deseja deletar?")) {
+            return;
+        }
         setShow(false);
     }
 
@@ -20,8 +23,8 @@ const DataCard = (props: DataCardProps) => {
         <>
             {
                 boards.map((board) => (
-                    <div className='data-container'>
-                        <div className='image-container' ><img className='data-image ' src={board.file?.url} alt={board.title} /></div>
+                    <div key={board.id} className='data-container'>
+                        <div className='image-container'><img className='data-image ' src={board.file?.url} alt={board.title} /></div>
                         <div className='data-info '>
                             <h3>{board.title}</h3>
                             <div className="display-info ">
@@ -31,10 +34,13 @@ const DataCard = (props: DataCardProps) => {
                                         <p> | {board.info?.place} | </p>
                                     )
                                 }
-                                <p>{board.info?.date}</p>
+                                <p>{board.info?.date} </p>
                                 {
                                     (board.type === 'event') && (
-                                        <p> | 3 CONFIRMAÇÕES DE 15</p>
+                                        <>
+                                            <p>| </p>
+                                            <button className='btn btn-confirm'> 2 CONFIRMAÇÕES DE 3 </button>
+                                        </>
                                     )
                                 }
                             </div>
@@ -47,7 +53,8 @@ const DataCard = (props: DataCardProps) => {
                 ))
             }
         </>
-    ) : (<></>);
+    ) : (<>
+    </>);
 };
 
 export default DataCard;

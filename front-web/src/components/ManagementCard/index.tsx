@@ -8,18 +8,21 @@ export interface ManagementCardProps {
     board: IManagementBoard;
 }
 
-const ManagementCard = (props: IManagementBoard) => {
-    const { title, resume_files } = props;
+const ManagementCard = (props: ManagementCardProps) => {
+    const { board } = props;
 
     const [show, setShow] = useState<boolean>(true);
     const dismiss = () => {
+        if (!window.confirm("Desejar excluir o item?")) {
+            return;
+        }
         setShow(false);
     }
 
     return (show) ? (
         <div className="container-card">
             <div className="title-card">
-                <h3>{title}</h3>
+                <h3>{board.title}</h3>
                 <div className="icons-card">
                     <GLobeIcon />
                     <button className="points-button" onClick={dismiss}><PointsIcon /></button>
@@ -27,13 +30,13 @@ const ManagementCard = (props: IManagementBoard) => {
             </div>
             <div className="image-content">
                 {
-                    (resume_files as IManagementFile[]).map((file): React.ReactNode => (
+                    (board.resume_files as IManagementFile[]).map((file): React.ReactNode => (
                         <img className='data-image' key={file.id} src={file.file} alt={file.title} />
                     ))
                 }
             </div>
         </div>
-    ) : (<></>);
+    ) : (<></>)
 };
 
 export default ManagementCard;

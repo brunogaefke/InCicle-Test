@@ -10,6 +10,7 @@ import { IDataCard } from 'utils/types/IDataCard'
 import getCardsFake from './getCardsFake'
 import Loader from './Loader'
 
+
 const Home = () => {
     const [management, setManagement] = useState<IManagement>({ boards: [] });
     const [loadingManagement, setLoadingManagement] = useState<boolean>(true);
@@ -59,7 +60,7 @@ const Home = () => {
                         <div className='container-buttons'>
                             <select className="filter-input" >
                                 <option value="">TIPO</option>
-                                <option value="Comunicado">Comunicado</option>
+                                <option value="Comunicado" >Comunicado</option>
                                 <option value="Evento">Evento</option>
                                 <option value="Publicação">Publicação</option>
                             </select>
@@ -78,7 +79,7 @@ const Home = () => {
                         <h6>Quadros de Gestão à Vista</h6>
                         {
                             (loadingManagement) ? <><Loader /></> : management.boards.map((board): React.ReactNode => (
-                                <ManagementCard key={board.id} title={board.title} resume_files={board.resume_files} />
+                                <ManagementCard key={board.id} board={board} />
                             ))
                         }
                     </div>
