@@ -3,6 +3,8 @@
 
 # Sobre o projeto
 
+https://incicle-test.netlify.app/
+
 InCicle - Endomarketing é uma aplicação front-web construída durante o teste de habilidade para a vaga de Front End Junior da [Incicle](https://www.linkedin.com/company/incicle/ "LinkedIn InCicle").
 
 A aplicação consiste em uma replicação de tela com carregamento dinâmico de arquivo JSON e algumas funções interativas de uso.
