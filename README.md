@@ -8,7 +8,7 @@ InCicle - Endomarketing é uma aplicação front-web construída durante o teste
 A aplicação consiste em uma replicação de tela com carregamento dinâmico de arquivo JSON e algumas funções interativas de uso.
 
 ## Layout web
-![Web 1](https://github.com/brunogaefke/Assets/blob/main/InCicleTest.png)
+![Web 1](https://github.com/brunogaefke/InCicle-Test/blob/main/InCicleTest.png)
 
 ## Modelo conceitual
 https://www.figma.com/file/Mp7UJ06vKoqrx0n0LMEAnC/InCicle-test?node-id=0%3A1
