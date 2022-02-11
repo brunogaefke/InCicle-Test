@@ -1,5 +1,4 @@
 import ButtonIcon from 'components/ButtonIcon'
-import DataCard from '../../components/DataCard/DataCard'
 import ManagementCard from 'components/ManagementCard'
 import getBoardsFake from 'pages/Home/getBoardsFake'
 import ReminderCard from 'components/ReminderCard'
@@ -10,6 +9,7 @@ import { IDataCard } from 'utils/types/IDataCard'
 import getCardsFake from './getCardsFake'
 import Loader from './Loader'
 import { allCards, cardsEvent, cardsPublication, cardsRelease } from './CardsFake'
+import DataCard from 'components/DataCard'
 
 
 const Home = () => {
