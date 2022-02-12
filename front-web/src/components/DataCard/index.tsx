@@ -3,6 +3,7 @@ import { IDataCard } from '../../utils/types/IDataCard';
 import { ReactComponent as BigIcon } from 'assets/img/bigPoints.svg';
 import './styles.css';
 import Modal from 'react-modal'
+import InvitedCard from 'components/InvitedCard';
 
 interface DataCardProps {
   card: IDataCard;
@@ -25,6 +26,15 @@ const DataCard = (props: DataCardProps): JSX.Element => {
       background: '#fff',
     },
   };
+
+  const [InvitedModalIsOpen, setInvitedModalIsOpen] = useState<boolean>(false);
+
+  function openInvitedModal() {
+    setInvitedModalIsOpen(true);
+  }
+  function closeInvitedModal() {
+    setInvitedModalIsOpen(false);
+  }
 
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
@@ -57,7 +67,19 @@ const DataCard = (props: DataCardProps): JSX.Element => {
             (card.type === 'event') && (
               <>
                 <p>| </p>
-                <button className='btn btn-confirm'> 2 CONFIRMAÇÕES DE 3 </button>
+                <button className='btn btn-confirm' onClick={openInvitedModal}> 2 CONFIRMAÇÕES DE 3 </button>
+                <Modal
+                  isOpen={InvitedModalIsOpen}
+                  onRequestClose={closeInvitedModal}
+                  style={customStyles}
+                  contentLabel="Invited-Modal"
+                >
+                  <div className="invited-modal">
+                    <h6>INTROPPERS CONVIDADOS:</h6>
+                    <InvitedCard />
+                    <button className="btn modal-button" onClick={closeInvitedModal}>SAIR</button>
+                  </div>
+                </Modal>
               </>
             )
           }
