@@ -27,13 +27,13 @@ const ManagementCard = (props: ManagementCardProps) => {
 
   const [show, setShow] = useState<boolean>(true);
 
-  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
   function openModal() {
-    setIsOpen(true);
+    setModalIsOpen(true);
   }
   function closeModal() {
-    setIsOpen(false);
+    setModalIsOpen(false);
   }
 
   const dismiss = () => {
