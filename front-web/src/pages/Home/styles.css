@@ -32,7 +32,7 @@
 .home-info-box {
   background-color: var(--color-primary);
   margin: 15px 0 15px 15px;
-  width: 280px;
+  width: 90%;
   height: 335px;
   padding: 10px 0 10px 10px;
   font-size: 16px;
@@ -47,7 +47,8 @@
   }
 
   .home-info-box {
-    width: 480px;
+    width: 90%;
+    padding-left: 25%;
   }
 }
 
@@ -76,5 +77,7 @@
   .home-info-box {
     width: 280px;
     margin: 20px 0;
+
+    padding-left: 10px;
   }
 }

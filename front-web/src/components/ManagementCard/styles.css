@@ -4,6 +4,9 @@
   height: 85px;
   background-color: var(--color-bg-primary);
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-content: center;
 }
 
 .title-card {
@@ -27,4 +30,8 @@
   padding-left: 5px;
   align-items: center;
   text-align: center;
+}
+
+.data-image {
+  padding: 0;
 }
