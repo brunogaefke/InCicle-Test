@@ -12,7 +12,7 @@ interface DataCardProps {
 }
 
 const DataCard = (props: DataCardProps): JSX.Element => {
-  const { card, invited } = props;
+  const { card } = props;
 
   const [show, setShow] = useState<boolean>(true);
 
@@ -57,11 +57,11 @@ const DataCard = (props: DataCardProps): JSX.Element => {
       <div className='image-container'><img className='data-image ' src={card.file?.url} alt={card.title} /></div>
       <div className='data-info '>
         <h3>{card.title}</h3>
+        <span>{(card.type)} </span>
         <div className="display-info ">
-          <span>{(card.type)} </span>
           {
             (card.type === 'event') && (
-              <p> | {card.info?.place} | </p>
+              <p> {card.info?.place} | </p>
             )
           }
           <p>{card.info?.date} </p>
