@@ -96,7 +96,7 @@ const Home = () => {
                 <>
                   {
                     cards.map((card, index): JSX.Element => (
-                      <DataCard key={index.toString()} card={card} />
+                      <DataCard key={index.toString()} card={card} invited={card} />
                     ))
                   }
                 </>

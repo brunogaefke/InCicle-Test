@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { IDataCard } from '../../utils/types/IDataCard';
+import { IDataCard, IInvitedPeople } from '../../utils/types/IDataCard';
 import { ReactComponent as BigIcon } from 'assets/img/bigPoints.svg';
+import { ReactComponent as IntrooperIcon } from 'assets/img/intropper-icon.svg';
 import './styles.css';
 import Modal from 'react-modal'
 import InvitedCard from 'components/InvitedCard';
 
 interface DataCardProps {
   card: IDataCard;
+  invited: IInvitedPeople;
 }
 
 const DataCard = (props: DataCardProps): JSX.Element => {
-  const { card } = props;
+  const { card, invited } = props;
 
   const [show, setShow] = useState<boolean>(true);
 
@@ -56,7 +58,7 @@ const DataCard = (props: DataCardProps): JSX.Element => {
       <div className='data-info '>
         <h3>{card.title}</h3>
         <div className="display-info ">
-          <span>{card.type} </span>
+          <span>{(card.type)} </span>
           {
             (card.type === 'event') && (
               <p> | {card.info?.place} | </p>
@@ -75,8 +77,10 @@ const DataCard = (props: DataCardProps): JSX.Element => {
                   contentLabel="Invited-Modal"
                 >
                   <div className="invited-modal">
-                    <h6>INTROPPERS CONVIDADOS:</h6>
-                    <InvitedCard />
+                    <div className='title-modal'><IntrooperIcon className='introoper-icon' /><h6>INTROPPERS CONVIDADOS</h6><IntrooperIcon className='introoper-icon' /></div>
+                    <div className='invited-card-content'>
+                      <InvitedCard invited={card.invited_people || []} />
+                    </div>
                     <button className="btn modal-button" onClick={closeInvitedModal}>SAIR</button>
                   </div>
                 </Modal>
