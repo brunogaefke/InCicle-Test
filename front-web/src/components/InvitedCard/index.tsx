@@ -1,22 +1,26 @@
+import { IInvitedPeople } from 'utils/types/IDataCard'
 import './styles.css'
 
-const InvitedCard = () => {
-  const equipe = {
-    id: 2,
-    name: "Kenedy Morais",
-    confirmed_presence: true,
-    avatar: "https://static-incicle.s3.us-east-1.amazonaws.com/front-test-files/kenedy.jpg",
-    username: "kenedymorais"
-  }
+export interface ModalProps {
+  invited: IInvitedPeople[];
+}
+
+const InvitedCard = (props: ModalProps): JSX.Element => {
+  const { invited } = props;
 
   return (
-    <div className="invited-card">
-      <div className='invited-container'><img className='invited-image ' src={equipe.avatar} alt={equipe.username} /></div>
-      <p>{`Nome: ${equipe.name}`}</p>
-      <p>{`Username: ${equipe.username}`}</p>
-      <p>{`Presença confirmada: ${equipe.confirmed_presence}`} </p>
+    <div>
+      {
+        (invited.map((person): React.ReactNode => (
+          <div key={person.id} className="invited-card">
+            <div className='invited-container'><img className='invited-image ' src={person.avatar} alt={person.name} /></div>
+            <p>{`Nome: ${person.name}`}</p>
+            <p>{`Username: ${person.username}`}</p>
+            <p>{`Confirmou presença? ${(person.confirmed_presence) ? 'Sim' : 'Não'}`}</p>
+          </div>
+        )))}
     </div>
   )
-}
+};
 
 export default InvitedCard

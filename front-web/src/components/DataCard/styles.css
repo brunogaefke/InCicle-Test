@@ -70,6 +70,23 @@
   color: var(--color-text-primary);
 }
 
+.title-modal {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+.title-modal h6 {
+  font-size: 18px;
+}
+
+.introoper-icon {
+  width: 52px;
+  height: 52px;
+}
+
 @media (min-width: 576px) {
   .data-container {
     width: 90%;
