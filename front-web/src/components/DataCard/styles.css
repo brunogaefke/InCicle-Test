@@ -55,7 +55,6 @@
 
 .display-info {
   display: flex;
-  flex-direction: column;
 }
 
 .data-icon {
